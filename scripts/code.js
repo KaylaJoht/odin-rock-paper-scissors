@@ -55,7 +55,7 @@ function playGame(){
     i += 1;
 
     if(i < 5) playGame();
-
+    return "Game Over! That was fun!"
 }
 
 console.log("Let's play Rock Paper Scissors");
