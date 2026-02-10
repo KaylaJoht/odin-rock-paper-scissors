@@ -1,5 +1,8 @@
 console.log("Hello World");
 
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice(){
     x = (Math.floor(Math.random() * 100) % 3) + 1;
     if(x == 1) return "Rock";
@@ -14,5 +17,7 @@ function getHumanChoice(){
     return y;
 }
 
+console.log("Human score ", humanScore);
+console.log("Computer Score ", computerScore);
 console.log(getComputerChoice());
 console.log(getHumanChoice());
