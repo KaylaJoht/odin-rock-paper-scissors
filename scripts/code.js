@@ -8,4 +8,10 @@ function getComputerChoice(){
     else return 0;
 }
 
+function getHumanChoice(){
+    let y = prompt("Please enter Rock, Paper, or Scissors: ");
+    return y;
+}
+
 console.log(getComputerChoice());
+console.log(getHumanChoice());
