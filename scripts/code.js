@@ -53,11 +53,9 @@ function playGame(){
 
     console.log(playRound(human, computer));
     i += 1;
-    console.log(i)
 
     if(i < 5) playGame();
 
-    return 0;
 }
 
 console.log("Let's play Rock Paper Scissors");
