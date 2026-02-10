@@ -2,6 +2,7 @@ console.log("Hello World");
 
 let humanScore = 0;
 let computerScore = 0;
+i = 0;
 
 function getComputerChoice(){
     x = (Math.floor(Math.random() * 100) % 3) + 1;
@@ -19,8 +20,6 @@ function getHumanChoice(){
 
 function playRound(human, computer){
     human = human.toLowerCase();
-    console.log(human);
-    console.log(computer);
     result = false;
 
     if((human == "rock" && computer == "paper")
@@ -37,11 +36,30 @@ function playRound(human, computer){
 
 }
 
-console.log("Human Score ", humanScore);
-console.log("Computer Score ", computerScore);
-//console.log("The computer chose ", getComputerChoice());
-//console.log("You chose ", getHumanChoice());
-//console.log(playRound(getHumanChoice(), getComputerChoice()));
-console.log(playRound("paper", "rock"));
-console.log(playRound("scissors", "scissors"));
-console.log(playRound("rock", "paper"));
+function getWinner(){
+    if (humanScore > computerScore) return `Yay! You won ${humanScore}:${computerScore}`
+    if (computerScore > humanScore) return `Aww! You lost ${humanScore}:${computerScore}`
+    else return `You tied ${humanScore}:${computerScore}`
+}
+
+function playGame(){
+    console.log(`Round ${i + 1}`);
+    console.log("Human Score ", humanScore);
+    console.log("Computer Score ", computerScore);
+    human = getHumanChoice();
+    computer = getComputerChoice();
+    console.log(`You chose ${human}`);
+    console.log(`The computer chose ${computer}`);
+
+    console.log(playRound(human, computer));
+    i += 1;
+    console.log(i)
+
+    if(i < 5) playGame();
+
+    return 0;
+}
+
+console.log("Let's play Rock Paper Scissors");
+console.log(playGame());
+console.log(getWinner());
