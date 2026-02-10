@@ -9,6 +9,7 @@ function getComputerChoice(){
 }
 
 function getHumanChoice(){
+    //For now, we assume the human will enter either Rock, Paper, or Scissors
     let y = prompt("Please enter Rock, Paper, or Scissors: ");
     return y;
 }
