@@ -1,5 +1,3 @@
-console.log("Hello World");
-
 let humanScore = 0;
 let computerScore = 0;
 let i = 0;
@@ -59,29 +57,26 @@ function getWinner(){
 }
 
 function playGame(human){
-    console.log(`Round ${i + 1}`);    
-
-    console.log("Human Score ", humanScore);
-    console.log("Computer Score ", computerScore);
     computer = getComputerChoice();
-    console.log(`You chose ${human}`);
-    console.log(`The computer chose ${computer}`);
 
     round = document.createElement('p');
     humanChoice = document.createElement('p');
     comChoice = document.createElement('p');
+    winlose = document.createElement('p');
+    
+    winlose.textContent = playRound(human, computer);
     round.textContent = `Round ${i + 1}`;
-    results.appendChild(round);
     humanChoice.textContent = `You chose ${human}`;
-    results.appendChild(humanChoice);
     comChoice.textContent = `The computer chose ${computer}`;
-    results.appendChild(comChoice);
 
-    console.log(playRound(human, computer));
+    results.appendChild(round);
+    results.appendChild(humanChoice);
+    results.appendChild(comChoice);
+    results.append(winlose);
+
+    console.log();
     i += 1;
 
     //if(i < 5) playGame();
     return "Game Over! That was fun!"
 }
-
-console.log("Let's play Rock Paper Scissors");
