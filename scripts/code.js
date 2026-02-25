@@ -2,10 +2,11 @@ console.log("Hello World");
 
 let humanScore = 0;
 let computerScore = 0;
-i = 0;
+let i = 0;
 const pBtn = document.getElementById('p');
 const rBtn = document.getElementById('r');
 const sBtn = document.getElementById('s');
+const results = document.getElementById('results');
 
 pBtn.addEventListener('click', (event) => {
         val = pBtn.textContent;
@@ -58,12 +59,23 @@ function getWinner(){
 }
 
 function playGame(human){
-    console.log(`Round ${i + 1}`);
+    console.log(`Round ${i + 1}`);    
+
     console.log("Human Score ", humanScore);
     console.log("Computer Score ", computerScore);
     computer = getComputerChoice();
     console.log(`You chose ${human}`);
     console.log(`The computer chose ${computer}`);
+
+    round = document.createElement('p');
+    humanChoice = document.createElement('p');
+    comChoice = document.createElement('p');
+    round.textContent = `Round ${i + 1}`;
+    results.appendChild(round);
+    humanChoice.textContent = `You chose ${human}`;
+    results.appendChild(humanChoice);
+    comChoice.textContent = `The computer chose ${computer}`;
+    results.appendChild(comChoice);
 
     console.log(playRound(human, computer));
     i += 1;
