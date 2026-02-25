@@ -52,9 +52,9 @@ function playGame(){
     console.log(`The computer chose ${computer}`);
 
     console.log(playRound(human, computer));
-    i += 1;
+    //i += 1;
 
-    if(i < 5) playGame();
+    //if(i < 5) playGame();
     return "Game Over! That was fun!"
 }
 
