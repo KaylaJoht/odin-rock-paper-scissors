@@ -6,23 +6,17 @@ const rBtn = document.getElementById('r');
 const sBtn = document.getElementById('s');
 const results = document.getElementById('results');
 
-pBtn.addEventListener('click', (event) => {
-        val = pBtn.textContent;
-        console.log(val);
-        playGame(val);
-});
+function getVal(e){
+    val = e.target.textContent;
+    console.log(val);
+    playGame(val);
+}
 
-rBtn.addEventListener('click', (event) => {
-        val = rBtn.textContent;
-        console.log(val);
-        playGame(val);
-});
+pBtn.addEventListener('click', getVal);
 
-sBtn.addEventListener('click', (event) => {
-        val = sBtn.textContent;
-        console.log(val);
-        playGame(val);
-});
+rBtn.addEventListener('click', getVal);
+
+sBtn.addEventListener('click', getVal);
 
 
 function getComputerChoice(){
@@ -51,13 +45,13 @@ function playRound(human, computer){
 }
 
 function getWinner(){
-    const winner = createElement('p');
+    const winner = document.createElement('p');
     if (humanScore > computerScore) winner.textContent = `Yay! You won! Computer Lost!`;
     if (computerScore > humanScore) winner.textContent = `Aww! You lost! Computer Won!`;
     results.appendChild(winner); 
-    pBtn.removeEventListener('click');
-    rBtn.removeEventListener('click');
-    sBtn.removeEventListener('click');
+    pBtn.removeEventListener('click', getVal);
+    rBtn.removeEventListener('click', getVal);
+    sBtn.removeEventListener('click', getVal);
 }
 
 function playGame(human){
@@ -75,11 +69,12 @@ function playGame(human){
     comChoice.textContent = `The computer chose ${computer}`;
     points.textContent = `You: ${humanScore} Computer: ${computerScore}`
 
+    
+    round.appendChild(humanChoice);
+    round.appendChild(comChoice);
+    round.appendChild(winlose);
+    round.appendChild(points);
     results.appendChild(round);
-    results.appendChild(humanChoice);
-    results.appendChild(comChoice);
-    results.appendChild(winlose);
-    results.appendChild(points);
 
     console.log();
     i += 1;
