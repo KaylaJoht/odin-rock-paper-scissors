@@ -3,6 +3,27 @@ console.log("Hello World");
 let humanScore = 0;
 let computerScore = 0;
 i = 0;
+const pBtn = document.getElementById('p');
+const rBtn = document.getElementById('r');
+const sBtn = document.getElementById('s');
+
+pBtn.addEventListener('click', (event) => {
+        val = pBtn.textContent;
+        console.log(val);
+});
+
+rBtn.addEventListener('click', (event) => {
+        val = rBtn.textContent;
+        console.log(val);
+});
+
+sBtn.addEventListener('click', (event) => {
+        val = sBtn.textContent;
+        console.log(val);
+});
+
+
+
 
 function getComputerChoice(){
     x = (Math.floor(Math.random() * 100) % 3) + 1;
@@ -10,12 +31,6 @@ function getComputerChoice(){
     if(x == 2) return "paper";
     if(x == 3) return "scissors";
     else return 0;
-}
-
-function getHumanChoice(){
-    //For now, we assume the human will enter either Rock, Paper, or Scissors
-    let y = prompt("Please enter Rock, Paper, or Scissors: ");
-    return y;
 }
 
 function playRound(human, computer){
