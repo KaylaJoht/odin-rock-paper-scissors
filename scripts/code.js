@@ -51,9 +51,13 @@ function playRound(human, computer){
 }
 
 function getWinner(){
-    if (humanScore > computerScore) return `Yay! You won ${humanScore}:${computerScore}`
-    if (computerScore > humanScore) return `Aww! You lost ${humanScore}:${computerScore}`
-    else return `You tied ${humanScore}:${computerScore}`
+    const winner = createElement('p');
+    if (humanScore > computerScore) winner.textContent = `Yay! You won! Computer Lost!`;
+    if (computerScore > humanScore) winner.textContent = `Aww! You lost! Computer Won!`;
+    results.appendChild(winner); 
+    pBtn.removeEventListener('click');
+    rBtn.removeEventListener('click');
+    sBtn.removeEventListener('click');
 }
 
 function playGame(human){
@@ -63,20 +67,22 @@ function playGame(human){
     humanChoice = document.createElement('p');
     comChoice = document.createElement('p');
     winlose = document.createElement('p');
+    points = document.createElement('p');
     
     winlose.textContent = playRound(human, computer);
     round.textContent = `Round ${i + 1}`;
     humanChoice.textContent = `You chose ${human}`;
     comChoice.textContent = `The computer chose ${computer}`;
+    points.textContent = `You: ${humanScore} Computer: ${computerScore}`
 
     results.appendChild(round);
     results.appendChild(humanChoice);
     results.appendChild(comChoice);
-    results.append(winlose);
+    results.appendChild(winlose);
+    results.appendChild(points);
 
     console.log();
     i += 1;
 
-    //if(i < 5) playGame();
-    return "Game Over! That was fun!"
+    if(humanScore === 5 || computerScore === 5) getWinner();
 }
